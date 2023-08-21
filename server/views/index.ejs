@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="SpeedTestApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/style.css">
+  <title>Internet Hız Testi</title>
+</head>
+<body ng-controller="SpeedTestController">
+  <div class="container">
+    <h1>Internet Hız Testi</h1>
+    <div class="results">
+      <p>Ping: {{ ping }} ms</p>
+      <p>İndirme Hızı: {{ download }} Mbps</p>
+      <p>Yükleme Hızı: {{ upload }} Mbps</p>
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="/script.js"></script>
+</body>
+</html>
