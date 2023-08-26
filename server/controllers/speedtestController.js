@@ -1,4 +1,7 @@
 const speedTest = require('speedtest-net');
+const ip = require('ip');
+const axios = require('axios');
+
 
 async function performSpeedTest() {
   try {
@@ -17,9 +20,20 @@ function convertBpsToMbpsAndFormat(bandwidthBps) {
   return formattedBandwidthMbps;
 }
 
+async function getPublicIpAddress() {
+  try {
+    const response = await axios.get('https://api.ipify.org?format=json');
+    return response.data.ip;
+  } catch (error) {
+    console.error('Error fetching public IP address:', error.message);
+    return null;
+  }
+}
+
 async function getSpeedTestResults(req, res) {
   try {
     const data = await performSpeedTest();
+    const clientIp = await getPublicIpAddress();
 
     const result = {
       ping: `${data.ping.latency} ms`,
@@ -32,6 +46,7 @@ async function getSpeedTestResults(req, res) {
         host: data.server.host,
         ip: data.server.ip,
       },
+      clientIp: clientIp,
     };
 
     res.json(result);
@@ -40,6 +55,7 @@ async function getSpeedTestResults(req, res) {
     res.status(500).json({ error: 'An error occurred while performing the speed test.' });
   }
 }
+
 
 module.exports = {
   getSpeedTestResults,

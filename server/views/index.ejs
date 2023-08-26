@@ -4,14 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <title>İnternet Hız Testi</title>
 </head>
 <body ng-controller="SpeedTestController">
-  <div class="container" ng-show="showResults">
+  <div class="container" ng-show="showResults" align="center">
     <div class="form">
       <h1>İnternet Hız Testi</h1>
       <div class="form-group">
-        <button ng-click="startSpeedTest()" ng-disabled="isTesting">Test Et</button>
+        <button class="btn-primary" ng-click="startSpeedTest()" ng-disabled="isTesting">Test Et</button>
       </div>
     </div>
     <div class="results">
@@ -23,6 +24,7 @@
       <p><b>Şehir:</b> {{ location }}</p>
       <p><b>Host:</b> {{ host }}</p>
       <p><b>Host Ip:</b> {{ ip }}</p>
+      <p><b>İstemci Ip:</b> {{ clientIp }}</p>
     </div>
   </div>
   <div id="loading" class="loading-container" ng-show="isTesting">

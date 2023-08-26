@@ -3,19 +3,30 @@ angular.module('SpeedTestApp', [])
     $scope.ping = 'N/A';
     $scope.download = 'N/A';
     $scope.upload = 'N/A';
-    $scope.showResults = true; // Hide the results initially
-    $scope.isTesting = false; // Flag to indicate if a test is in progress
+    $scope.country = '';
+    $scope.name = '';
+    $scope.location = '';
+    $scope.host = '';
+    $scope.ip = '';
+    $scope.clientIp = ''; // Initialize clientIp
+    $scope.showResults = true;
+    $scope.isTesting = false;
 
     $scope.startSpeedTest = function() {
       $scope.ping = 'N/A';
       $scope.download = 'N/A';
       $scope.upload = 'N/A';
+      $scope.country = '';
+      $scope.name = '';
+      $scope.location = '';
+      $scope.host = '';
+      $scope.ip = '';
+      $scope.clientIp = ''; // Reset clientIp
       if (!$scope.isTesting) {
-        $scope.isTesting = true; // Start the test, show "Please wait"
-        $scope.showResults = false; // Hide results during testing
+        $scope.isTesting = true;
+        $scope.showResults = false;
         $http.get('/speedtest')
           .then(function(response) {
-            console.dir(response);
             const data = response.data;
             $scope.ping = data.ping;
             $scope.download = data.download;
@@ -25,13 +36,14 @@ angular.module('SpeedTestApp', [])
             $scope.country = data.server.country;
             $scope.host = data.server.host;
             $scope.location = data.server.location;
-            $scope.showResults = true; // Show results after testing
+            $scope.clientIp = data.clientIp; // Set clientIp
+            $scope.showResults = true;
           })
           .catch(function(error) {
             console.error('Error fetching speed test results:', error);
           })
           .finally(function() {
-            $scope.isTesting = false; // Test finished, hide "Please wait"
+            $scope.isTesting = false;
           });
       }
     };
