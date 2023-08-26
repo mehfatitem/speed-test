@@ -32,9 +32,6 @@ async function getSpeedTestResults(req, res) {
         host: data.server.host,
         ip: data.server.ip,
       },
-      result: {
-        url: data.result.url,
-      },
     };
 
     res.json(result);

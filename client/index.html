@@ -4,24 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <title>Internet Hız Testi</title>
+  <title>İnternet Hız Testi</title>
 </head>
 <body ng-controller="SpeedTestController">
-  <div class="container">
+  <div class="container" ng-show="showResults">
     <div class="form">
-      <h1>Internet Hız Testi</h1>
+      <h1>İnternet Hız Testi</h1>
       <div class="form-group">
         <button ng-click="startSpeedTest()" ng-disabled="isTesting">Test Et</button>
       </div>
     </div>
-    <div class="results" ng-show="isRes">
-      <p>Ping: {{ ping }}</p>
-      <p>İndirme Hızı: {{ download }}</p>
-      <p>Yükleme Hızı: {{ upload }}</p>
+    <div class="results">
+      <p><b>Ping:</b> {{ ping }}</p>
+      <p><b>İndirme Hızı:</b> {{ download }}</p>
+      <p><b>Yükleme Hızı:</b> {{ upload }}</p>
+      <p><b>Ülke:</b> {{ country }}</p>
+      <p><b>İnternet Sağlayıcı Firma:</b> {{ name }}</p>
+      <p><b>Şehir:</b> {{ location }}</p>
+      <p><b>Host:</b> {{ host }}</p>
+      <p><b>İstemci Ip:</b> {{ ip }}</p>
     </div>
   </div>
   <div id="loading" class="loading-container" ng-show="isTesting">
-    <p class="warning-text" id="process" name="process">Testing in progress...</p>
+    <p class="warning-text" id="process" name="process">Test işlemi devam ediyor...</p>
     <img id="loading-image" class="centered" src="images/loading.gif" width="50" height="50">
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
