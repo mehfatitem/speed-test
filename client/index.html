@@ -8,28 +8,55 @@
   <title>İnternet Hız Testi</title>
 </head>
 <body ng-controller="SpeedTestController">
-  <div class="container" ng-show="showResults" align="center">
-    <div class="form">
-      <h1>İnternet Hız Testi</h1>
-      <div class="form-group">
-        <button class="btn-primary" ng-click="startSpeedTest()" ng-disabled="isTesting">Test Et</button>
+  <div class="container">
+    <div class="speed-test">
+      <h1 class="text-center">İnternet Hız Testi</h1>
+      <div class="form-group text-center">
+        <button class="btn btn-primary" ng-click="startSpeedTest()" ng-disabled="isTesting">Test Et</button>
+      </div>
+      <div class="loading-container text-center" ng-show="isTesting">
+        <p class="warning-text">Test işlemi devam ediyor...</p>
+        <img class="loading-image" src="images/loading.gif" alt="Loading..." width="50" height="50">
+      </div>
+      <div class="results" ng-show="showResults">
+        <div class="result-item">
+          <b class="result-label">Ping:</b>
+          <span class="result-value">{{ ping }}</span>
+        </div>
+        <div class="result-item">
+          <b class="result-label">İndirme Hızı:</b>
+          <span class="result-value">{{ download }}</span>
+        </div>
+        <div class="result-item">
+          <b class="result-label">Yükleme Hızı:</b>
+          <span class="result-value">{{ upload }}</span>
+        </div>        
+        <div class="result-item country">
+          <b class="result-label">Ülke:</b>
+          <span class="result-value">{{ country }}</span>
+        </div>
+        <div class="result-item provider">
+          <b class="result-label">İnternet Sağlayıcı Firma:</b>
+          <span class="result-value">{{ name }}</span>
+        </div>
+        <div class="result-item location">
+          <b class="result-label">Şehir:</b>
+          <span class="result-value">{{ location }}</span>
+        </div>
+        <div class="result-item host">
+          <b class="result-label">Host:</b>
+          <span class="result-value">{{ host }}</span>
+        </div>
+        <div class="result-item host-ip">
+          <b class="result-label">Host Ip:</b>
+          <span class="result-value">{{ ip }}</span>
+        </div>
+        <div class="result-item client-ip">
+          <b class="result-label">İstemci Ip:</b>
+          <span class="result-value">{{ clientIp }}</span>
+        </div>
       </div>
     </div>
-    <div class="results">
-      <p><b>Ping:</b> {{ ping }}</p>
-      <p><b>İndirme Hızı:</b> {{ download }}</p>
-      <p><b>Yükleme Hızı:</b> {{ upload }}</p>
-      <p><b>Ülke:</b> {{ country }}</p>
-      <p><b>İnternet Sağlayıcı Firma:</b> {{ name }}</p>
-      <p><b>Şehir:</b> {{ location }}</p>
-      <p><b>Host:</b> {{ host }}</p>
-      <p><b>Host Ip:</b> {{ ip }}</p>
-      <p><b>İstemci Ip:</b> {{ clientIp }}</p>
-    </div>
-  </div>
-  <div id="loading" class="loading-container" ng-show="isTesting">
-    <p class="warning-text" id="process" name="process">Test işlemi devam ediyor...</p>
-    <img id="loading-image" class="centered" src="images/loading.gif" width="50" height="50">
   </div>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
   <script src="script.js"></script>
