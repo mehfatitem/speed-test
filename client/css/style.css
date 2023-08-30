@@ -1,0 +1,114 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+}
+
+.container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.loading-container {
+  width: 100%;
+  z-index: 10000;
+  text-align: center;
+}
+
+.speed-test {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.loading-container {
+  margin-top: 20px;
+}
+
+.warning-text {
+  color: #e74c3c;
+  margin-bottom: 10px;
+}
+
+.loading-image {
+  display: block;
+  margin: 0 auto;
+}
+
+.results {
+  margin-top: 20px;
+}
+
+.result-item {
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+}
+/* Define styles for specific rows */
+.result-item .result-label {
+  font-weight: bold;
+}
+
+.result-item .result-value {
+  color: #333; /* Default text color for result values */
+}
+
+/* Change text color based on content */
+.result-item.country .result-value {
+  color: #3498db; /* Change to specific color for country */
+}
+
+.result-item.provider .result-value {
+  color: #27ae60; /* Change to specific color for provider name */
+}
+
+.result-item.location .result-value {
+  color: #e67e22; /* Change to specific color for location */
+}
+
+/* ... (previously shown styles) ... */
+
+/* Change text color based on content */
+.result-item.country .result-value {
+  color: #3498db; /* Change to specific color for country */
+}
+
+.result-item.provider .result-value {
+  color: #27ae60; /* Change to specific color for provider name */
+}
+
+.result-item.location .result-value {
+  color: #e67e22; /* Change to specific color for location */
+}
+
+.result-item.host .result-value {
+  color: #8e44ad; /* Change to specific color for host */
+}
+
+.result-item.host-ip .result-value {
+  color: #d35400; /* Change to specific color for host IP */
+}
+
+.result-item.client-ip .result-value {
+  color: #c0392b; /* Change to specific color for client IP */
+}
+
+/* styles.css */
+.make_darkness{
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+
+
+
+
+
