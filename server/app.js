@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const speedtestController = require('./controllers/speedtestController');
+const SpeedTestController = require('./controllers/SpeedTestController');
 const path = require('path');
 
 app.set('view engine', 'ejs');
@@ -15,7 +15,9 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'client', 'index.html'));
 });
 
-app.get('/speedtest', speedtestController.getSpeedTestResults);
+app.get('/speedtest', (req, res) => {
+  SpeedTestController.getSpeedTestResults(req, res);
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
